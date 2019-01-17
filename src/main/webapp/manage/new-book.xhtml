@@ -13,38 +13,38 @@
     <ui:define name="content">
 
         <h:form id="new-book-form">
-            <ui:fragment rendered="#{createBookBean.created}">
+            <ui:fragment rendered="#{newBookBean.created}">
                 <h2>Book created successfully</h2>
             </ui:fragment>
             <p>
                 <h:outputLabel value="Title:"/>
-                <h:inputText id="title" value="#{createBookBean.book.title}"/>
+                <h:inputText id="title" value="#{newBookBean.book.title}"/>
                 <h:messages for="title"/>
             </p>
             <p>
                 <h:outputLabel value="Author:"/>
-                <h:inputText id="author" value="#{createBookBean.book.author}"/>
+                <h:inputText id="author" value="#{newBookBean.book.author}"/>
                 <h:messages for="author"/>
             </p>
             <p>
                 <h:outputLabel value="ISBN:"/>
-                <h:inputText id="isbn" value="#{createBookBean.book.isbn}"/>
+                <h:inputText id="isbn" value="#{newBookBean.book.isbn}"/>
                 <h:messages for="isbn"/>
             </p>
             <p>
                 <h:outputLabel value="Year:"/>
-                <h:inputText id="year" value="#{createBookBean.book.year}"/>
+                <h:inputText id="year" value="#{newBookBean.book.year}"/>
                 <h:messages for="year"/>
             </p>
             <p>
                 <h:outputLabel value="Description:"/>
                 <br/>
                 <h:inputTextarea id="description"
-                                 value="#{createBookBean.book.description}"/>
+                                 value="#{newBookBean.book.description}"/>
                 <h:messages for="description"/>
             </p>
             <p>
-                <h:commandButton action="#{createBookBean.createBook}"
+                <h:commandButton action="#{newBookBean.createBook}"
                                  value="Create">
                     <f:ajax render="@form" execute="@form"/>
                 </h:commandButton>

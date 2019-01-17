@@ -15,15 +15,15 @@
 
         <h:form>
 
-            <h:inputText value="#{bookBean.term}"/>
-            <h:commandButton value="Search" action="#{bookBean.doSearch}">
+            <h:inputText value="#{booksListBean.term}"/>
+            <h:commandButton value="Search" action="#{booksListBean.doSearch}">
                 <f:ajax execute="@form" render="@form"/>
             </h:commandButton>
 
             <h:outputLabel value="Not found"
-                           rendered="#{empty bookBean.books}"/>
-            <h:dataTable value="#{bookBean.books}" var="book"
-                         rendered="#{not empty bookBean.books}">
+                           rendered="#{empty booksListBean.books}"/>
+            <h:dataTable value="#{booksListBean.books}" var="book"
+                         rendered="#{not empty booksListBean.books}">
                 <h:column>
                     <f:facet name="header">Id</f:facet>
                     #{book.id}

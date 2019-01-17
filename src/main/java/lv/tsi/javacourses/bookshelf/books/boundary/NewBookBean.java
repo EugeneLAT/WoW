@@ -12,7 +12,7 @@ import java.io.Serializable;
 
 @ViewScoped
 @Named
-public class CreateBookBean implements Serializable {
+public class NewBookBean implements Serializable {
     @PersistenceContext
     private EntityManager em;
     private BookEntity book = new BookEntity();

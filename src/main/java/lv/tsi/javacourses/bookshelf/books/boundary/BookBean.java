@@ -3,38 +3,36 @@ package lv.tsi.javacourses.bookshelf.books.boundary;
 import lv.tsi.javacourses.bookshelf.books.model.BookEntity;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.awt.print.Book;
 import java.io.Serializable;
-import java.util.List;
 
+@ViewScoped
 @Named
-@SessionScoped
 public class BookBean implements Serializable {
     @PersistenceContext
     private EntityManager em;
-    private String term;
 
-    public List<BookEntity> getBooks() {
-        if (term == null) {
-            return em.createQuery("select b from Book b", BookEntity.class).getResultList();
-        } else {
-            return em.createQuery("select b from Book b where lower(b.title) like :term", BookEntity.class)
-                    .setParameter("term", "%" + term.toLowerCase() + "%")
-                    .getResultList();
-        }
+    private Long id;
+    private BookEntity book;
+
+    public void openBook() {
+        System.out.println("Opening book " + id);
+        book = em.find(BookEntity.class, id);
     }
 
-    public String getTerm() {
-        return term;
+    public BookEntity getBook() {
+        return book;
     }
 
-    public void setTerm(String term) {
-        this.term = term;
+    public Long getId() {
+        return id;
     }
 
-    public void doSearch() {
-        System.out.println("Searching");
+    public void setId(Long id) {
+        this.id = id;
     }
 }

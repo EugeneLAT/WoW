@@ -14,38 +14,38 @@
     <ui:define name="content">
 
         <f:metadata>
-            <f:viewParam name="id" value="#{singleBookBean.id}"/>
-            <f:viewAction action="#{singleBookBean.openBook}"/>
+            <f:viewParam name="id" value="#{bookBean.id}"/>
+            <f:viewAction action="#{bookBean.openBook}"/>
         </f:metadata>
 
-        <h1>#{singleBookBean.book.title}</h1>
+        <h1>#{bookBean.book.title}</h1>
 
         <table>
             <tr>
                 <td>id</td>
-                <td>#{singleBookBean.book.id}</td>
+                <td>#{bookBean.book.id}</td>
             </tr>
             <tr>
                 <td>isbn</td>
-                <td>#{singleBookBean.book.isbn}</td>
+                <td>#{bookBean.book.isbn}</td>
             </tr>
             <tr>
                 <td>author</td>
-                <td>#{singleBookBean.book.author}</td>
+                <td>#{bookBean.book.author}</td>
             </tr>
             <tr>
                 <td>year</td>
-                <td>#{singleBookBean.book.year}</td>
+                <td>#{bookBean.book.year}</td>
             </tr>
             <tr>
                 <td>description</td>
-                <td>#{singleBookBean.book.description}</td>
+                <td>#{bookBean.book.description}</td>
             </tr>
         </table>
 
         <h:form>
             <h:commandButton value="Reserve for me"
-                             action="#{bookReservationBean.reserve(singleBookBean.id)}"/>
+                             action="#{bookReservationBean.reserve(bookBean.id)}"/>
         </h:form>
     </ui:define>
 </ui:composition>
